@@ -39,6 +39,12 @@ console.log(inventoryears);
 // Verwachte uitkomst: [ 'Albert Einstein', 'Isaac Newton', 'Galileo Galilei', 'Marie Curie', 'Johannes Kepler', 'Nicolaus Copernicus', 'Max Planck', 'Katherine Blodgett', 'Ada Lovelace', 'Sarah E. Goode', 'Lise Meitner', 'Thomas Edison']
 
 
+const inventorFullName = inventors.map((inventorName) =>{
+    return inventorName.first + " " + inventorName.last;
+});
+
+console.log(inventorFullName);
+
 // 4. Sorteer de uitvinders op geboortejaar, oplopend van oudste naar jongste uitvinder
 // Verwachte uitkomst:
 // [
@@ -55,6 +61,18 @@ console.log(inventoryears);
 //   { first: 'Albert', last: 'Einstein', year: 1879, passed: 1955 },
 //   { first: 'Katherine', last: 'Blodgett', year: 1898, passed: 1979 }
 // ]
+
+// 1. sort() Methode erstellen
+// 2. const erstellen = const fullDetails
+//3. dann fullDetails.sort((yearOfBirth) => {})
+//4. condition if if a < b {
+// return -1
+
+let sortedYears = inventors.sort((a,b) => {
+    return a.year - b.year;
+});
+
+console.log(sortedYears);
 
 
 // 5. Sorteer de uitvinders op hoeveel jaren ze geleefd hebben, van langste leven naar kortste leven
@@ -74,6 +92,18 @@ console.log(inventoryears);
 // { first: 'Ada', last: 'Lovelace', year: 1815, passed: 1852 }
 // ]
 
+let yearsLived = inventors.sort((a,b) => {
+    const yearsLivedA = a.passed - a.year;
+    const yearsLivedB = b.passed - b.year;
+    return yearsLivedB - yearsLivedA;
+});
+console.log(yearsLived);
 
 // 6. Vind de gegevens over de uitvinder wiens achternaam 'Edison' is.
 // Verwachte uitkomst: { first: 'Thomas', last: 'Edison', year: 1847, passed: 1931 }
+
+const edisonDetails = inventors.find((inventorDetail ) => {
+    return inventorDetail.last === "Edison";
+});
+
+console.log(edisonDetails);
